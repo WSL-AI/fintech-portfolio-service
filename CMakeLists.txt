@@ -6,9 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(fintech_portfolio
-    src/main.cpp
-    src/financial_instrument.cpp
+    main.cpp
+    FinancialInstrument.cpp
 )
-
-target_include_directories(fintech_portfolio PRIVATE include)
-
