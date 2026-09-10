@@ -26,19 +26,42 @@ protected:
 
 class Stock : public FinancialInstrument {
 public:
-    using FinancialInstrument::FinancialInstrument;
+    Stock(string symbol, string name, double price, string exchange, double dividendYield);
+
     string getType() const override;
+    void print() const override;
+    const string& getExchange() const;
+    double getDividendYield() const;
+
+    private:
+        string exchange_;
+        double dividendYield_;
 };
 
 class Bond : public FinancialInstrument {
 public:
-    using FinancialInstrument::FinancialInstrument;
+    Bond(string symbol, string name, double price, double faceValue, double couponRate, string maturityDate);
+
     string getType() const override;
+    void print() const override;
+    double getFaceValue() const;
+    double getCouponRate() const;
+    const string& getMaturityDate() const;
+
+    private:
+        double faceValue_; //номинал облигации
+        double couponRate_; //процент купона
+        string maturityDate_; //дата погашения
 };
 
 class Cryptocurrency : public FinancialInstrument {
 public:
-    using FinancialInstrument::FinancialInstrument;
-    string getType() const override;
-};
+    Cryptocurrency(string symbol, string name, double price, string blockchainNetwork);
 
+    string getType() const override;
+    void print() const override;
+    const string& getBlockchainNetwork() const;
+
+private:
+    string blockchainNetwork_;
+};
